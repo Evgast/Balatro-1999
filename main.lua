@@ -29,6 +29,13 @@ SMODS.Atlas {
 	py = 95
 }
 
+SMODS.Atlas {
+	key = "enhance",
+	path = "enhance.png",
+	px = 71,
+	py = 95
+}
+
 SMODS.Joker {
 	key = 'Anjo',
 	loc_txt = {
@@ -67,8 +74,7 @@ SMODS.Joker {
 					if context.joker_main and card.ability.extra.check == 5 and not context.blueprint then
 						card.ability.extra.check = 0
 						return {
-						  x_mult_mod = card.ability.extra.x_mult,
-						  message = localize { type = 'variable', key = 'x_mult', vars = { card.ability.extra.x_mult } }
+						  x_mult_mod = card.ability.extra.x_mult,mmm
 						}
 					  end
 
@@ -82,8 +88,9 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Pavia',
 		text = {
-			"Gains {C:mult}+#1#{} after",
+			"Gains {C:mult}+#2#{} after",
             "selling a joker",
+			"{C:inactive}Currently {C:mult}+#1#{}{}"
 		}
 	},
 	rarity = 2,
@@ -153,7 +160,7 @@ SMODS.Enhancement {
 			"{X:mult,C:white}X2{} Mult, {C:red,E:2}Self Destructs{} in the deck",
 			"{C:red,E:2}Shatters{} {C:attention}Door{} when scored"
 		}},
-	atlas = 'B1999',
+	atlas = 'enhance',
 	in_pool = function(self)
 		return false
 	end,
@@ -245,14 +252,15 @@ SMODS.Consumable {
 	end
 }
 
+
+
 SMODS.Consumable {
 	key = 'mel2',
 	set = 'tune',
 	loc_txt = {
 		name = 'First Melody 2',
 		text = {
-			'Puts your {C:attention}hand{}',
-			'back into the {C:attention}deck{},',
+			'Discards your {C:attention}hand{}',
 			'{C:red}dissolved{} at the',
 			'end of the round'
 	}},
@@ -270,9 +278,6 @@ SMODS.Consumable {
 		G.hand:unhighlight_all()
 		  for i = 1, #G.hand.cards do
 			G.hand.cards[i] = card:add_to_deck()
-		  end
-		  if context.end_of_round then
-			card:start_dissolve()
 		  end
 		end,
 	can_use = function(self, card)
@@ -306,7 +311,7 @@ SMODS.Joker {
 			SMODS.add_card { key = "c_b1999_mel1" }
 		end
 		if context.setting_blind and (#G.consumeables.cards < G.consumeables.config.card_limit) then
-			SMODS.add_card { key = "c_b1999_mel1" }
+			SMODS.add_card { key = "c_b1999_mel2" }
 	end
 end
 }
