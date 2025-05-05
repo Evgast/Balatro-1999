@@ -190,7 +190,7 @@ SMODS.Sticker {
 	loc_vars = function(self, info_queue, card)
 	end,
 	calculate = function (self, card, context)
-		if card.ability.set == "Default" and context.end_of_round then
+		if card.ability.set == "Default" and context.cardarea == G.deck then
 			card.ability.b1999_rankup = nil
 			SMODS.modify_rank(card, -1)
 		end
@@ -275,10 +275,17 @@ SMODS.Consumable {
 	loc_vars = function(self, info_queue, card)
 	end,
 	use = function (self, card, area)
-		G.hand:unhighlight_all()
-		  for i = 1, #G.hand.cards do
-			G.hand.cards[i] = card:add_to_deck()
-		  end
+		HELP = G.hand.config.highlighted_limit
+			for i=1, #G.hand.cards do
+				imstupid = G.hand.cards[i]
+				G.hand.config.highlighted_limit = #G.hand.cards
+				G.hand:add_to_highlighted(imstupid, true)
+				sos = true
+			end
+			if sos then
+				G.FUNCS.discard_cards_from_highlighted()
+				G.hand.config.highlighted_limit = HELP
+				end
 		end,
 	can_use = function(self, card)
 			if G.STATE == G.STATES.SELECTING_HAND then
