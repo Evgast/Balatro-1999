@@ -275,16 +275,17 @@ SMODS.Consumable {
 	loc_vars = function(self, info_queue, card)
 	end,
 	use = function (self, card, area)
-		HELP = G.hand.config.highlighted_limit
+		oldnumbah = G.hand.config.highlighted_limit
 			for i=1, #G.hand.cards do
-				imstupid = G.hand.cards[i]
+				carded = G.hand.cards[i]
 				G.hand.config.highlighted_limit = #G.hand.cards
-				G.hand:add_to_highlighted(imstupid, true)
+				G.hand:add_to_highlighted(carded, true)
 				sos = true
 			end
 			if sos then
 				G.FUNCS.discard_cards_from_highlighted()
-				G.hand.config.highlighted_limit = HELP
+				G.hand.config.highlighted_limit = oldnumbah
+				ease_discard(1)
 				end
 		end,
 	can_use = function(self, card)
