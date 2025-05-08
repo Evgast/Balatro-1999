@@ -12,7 +12,6 @@ SMODS.load_file("content/jokers/anjo.lua")()
 SMODS.load_file("content/jokers/pavia.lua")()
 SMODS.load_file("content/jokers/doorstuff.lua")()
 SMODS.load_file("content/jokers/fmstuff.lua")()
-SMODS.load_file("content/jokers/orange.lua")()
 SMODS.load_file("content/decks/timekeeper.lua")()
 
 
