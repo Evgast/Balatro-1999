@@ -2,16 +2,22 @@
 SMODS.current_mod.optional_features = function()
     return {
 		cardareas = {
-			deck = true
+			deck = true,
+			discard = true
 		},
         post_trigger = true
     }
 end
 
+SMODS.load_file("hooksmayhaps.lua")()
 SMODS.load_file("content/jokers/anjo.lua")()
 SMODS.load_file("content/jokers/pavia.lua")()
 SMODS.load_file("content/jokers/doorstuff.lua")()
 SMODS.load_file("content/jokers/fmstuff.lua")()
+SMODS.load_file("content/jokers/orange.lua")()
+SMODS.load_file("content/jokers/windsong.lua")()
+SMODS.load_file("content/jokers/lopera.lua")()
+SMODS.load_file("content/vouchers/pneuma.lua")()
 SMODS.load_file("content/decks/timekeeper.lua")()
 
 
@@ -39,6 +45,13 @@ SMODS.Atlas {
 SMODS.Atlas {
 	key = "enhance",
 	path = "enhance.png",
+	px = 71,
+	py = 95
+}
+
+SMODS.Atlas {
+	key = "vouch",
+	path = "vouch.png",
 	px = 71,
 	py = 95
 }

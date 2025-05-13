@@ -5,15 +5,17 @@ SMODS.Joker {
 		text = {
 			"Gains {C:mult}+#2#{} after",
             "selling a joker",
-			"{C:inactive}Currently {C:mult}+#1#{}{}"
+			"{C:inactive}(Currently {C:mult}+#1#{}){}"
 		}
 	},
-	rarity = 2,
+	rarity = 1,
 	atlas = 'B1999',
 	pos = { x = 1, y = 0 },
 	cost = 5,
 	blueprint_compat = true,
-	config = { extra = { mult = 0, mult_gain = 1 } },
+	eternal_compat = true,
+	perishable_compat = false,
+	config = { extra = { mult = 0, mult_gain = 2 } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.mult, card.ability.extra.mult_gain } }
 	end,

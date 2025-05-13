@@ -47,7 +47,7 @@ SMODS.Consumable {
 	pos = { x = 0, y = 0 },
 	cost = 0,
 	calculate = function (self, card, context)
-		if context.end_of_round then
+		if context.end_of_round and context.main_eval then
 			card:start_dissolve()
 		  end
 		end,
@@ -84,14 +84,15 @@ SMODS.Consumable {
 	pos = { x = 1, y = 0 },
 	cost = 0,
 	calculate = function (self, card, context)
-		if context.end_of_round then
+		if context.end_of_round and context.main_eval then
 			card:start_dissolve()
 		  end
 		end,
 	loc_vars = function(self, info_queue, card)
 	end,
 	use = function (self, card, area)
-		oldnumbah = G.hand.config.highlighted_limit
+		G.hand:unhighlight_all()
+		local oldnumbah = G.hand.config.highlighted_limit
 			for i=1, #G.hand.cards do
 				carded = G.hand.cards[i]
 				G.hand.config.highlighted_limit = #G.hand.cards
@@ -125,7 +126,9 @@ SMODS.Joker {
 	atlas = 'B1999',
 	pos = { x = 3, y = 0 },
 	cost = 5,
-	blueprint_compat = false,
+	blueprint_compat = true,
+	eternal_compat = true,
+	perishable_compat = true,
 	config = { extra = { x_mult = 3, check = 0 } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { colours = { HEX("638fe1") } } }
