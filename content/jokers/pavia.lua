@@ -5,7 +5,7 @@ SMODS.Joker {
 		text = {
 			"Gains {C:mult}+#2#{} after",
             "selling a joker",
-			"{C:inactive}(Currently {C:mult}+#1#{}){}"
+			"{C:inactive}(Currently {C:mult}+#1#{C:inactive}){}"
 		}
 	},
 	rarity = 1,

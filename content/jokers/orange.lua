@@ -7,7 +7,7 @@ SMODS.Joker {
 			'When playing a hand:',
             '{C:red}"Eats"{} a {C:attention}consumable{},',
 			'transforms on {C:attention}6{} eaten',
-			"{C:inactive}(Currently: {C:attention}#1#{}){}"
+			"{C:inactive}(Currently: {C:attention}#1#{C:inactive}){}"
 		}
 	},
 	rarity = 2,
@@ -32,9 +32,8 @@ SMODS.Joker {
 					}
 				end
 				if context.before and card.ability.extra.eat >= 5 and not context.blueprint then
-					G.consumeables.cards[i]:start_dissolve()
-					card:start_dissolve()
-					SMODS.add_card({ key = "j_b1999_gun" })
+					card:juice_up()
+					card:set_ability("j_b1999_gun")
 					G.GAME.pool_flags.eaten = true
 					return {
 						message = "Nom",

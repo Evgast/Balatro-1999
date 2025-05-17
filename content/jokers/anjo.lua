@@ -5,11 +5,10 @@ SMODS.Joker {
 		text = {
 			"{X:mult,C:white}X#1#{} mult after triggering",
             "{C:attention}Joker{} to the right 5 times",
-            "{C:inactive}(Currently {C:attention}#2#{}/5){}",
+            "{C:inactive}(Currently {C:attention}#2#/5{C:inactive}){}",
 		}
 	},
 	rarity = 3,
-	-- 1 common, 2 uncommon, 3 rare, 4 legendary.
 	atlas = 'B1999',
 	pos = { x = 0, y = 0 },
 	cost = 8,
