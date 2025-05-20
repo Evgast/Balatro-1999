@@ -6,7 +6,7 @@ SMODS.Sticker {
 	loc_vars = function(self, info_queue, card)
 	end,
 	calculate = function (self, card, context)
-		if context.cardarea == G.discard then
+		if context.end_of_round then
 			card.ability.b1999_rankup = nil
 			SMODS.modify_rank(card, -1)
 		end
