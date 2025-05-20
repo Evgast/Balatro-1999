@@ -5,7 +5,8 @@ SMODS.current_mod.optional_features = function()
 			deck = true,
 			discard = true
 		},
-        post_trigger = true
+        post_trigger = true,
+		retrigger_joker = true
     }
 end
 
@@ -17,6 +18,9 @@ SMODS.load_file("content/jokers/fmstuff.lua")()
 SMODS.load_file("content/jokers/orange.lua")()
 SMODS.load_file("content/jokers/windsong.lua")()
 SMODS.load_file("content/jokers/lopera.lua")()
+SMODS.load_file("content/jokers/jokernia.lua")()
+SMODS.load_file("content/jokers/carbuncles.lua")()
+SMODS.load_file("content/jokers/loggerhead.lua")()
 SMODS.load_file("content/vouchers/pneuma.lua")()
 SMODS.load_file("content/decks/timekeeper.lua")()
 
@@ -24,6 +28,13 @@ SMODS.load_file("content/decks/timekeeper.lua")()
 SMODS.Atlas {
 	key = "B1999",
 	path = "B1999.png",
+	px = 71,
+	py = 95
+}
+
+SMODS.Atlas {
+	key = "buncles",
+	path = "buncles.png",
 	px = 71,
 	py = 95
 }
@@ -38,13 +49,6 @@ SMODS.Atlas {
 SMODS.Atlas {
 	key = "ba",
 	path = "ba.png",
-	px = 71,
-	py = 95
-}
-
-SMODS.Atlas {
-	key = "enhance",
-	path = "enhance.png",
 	px = 71,
 	py = 95
 }

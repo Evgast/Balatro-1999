@@ -13,7 +13,7 @@ SMODS.Joker {
 	atlas = 'B1999',
 	pos = { x = 1, y = 1 },
 	cost = 5,
-	blueprint_compat = false,
+	blueprint_compat = true,
 	eternal_compat = true,
 	perishable_compat = true,
 	config = { extra = { chips = 20, mult = 4 } },

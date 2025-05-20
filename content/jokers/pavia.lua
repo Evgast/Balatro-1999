@@ -3,19 +3,19 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Pavia',
 		text = {
-			"Gains {C:mult}+#2#{} after",
-            "selling a joker",
+			"Gains {C:mult}+#2#{} Mult",
+            "after selling a {C:attention}Joker{}",
 			"{C:inactive}(Currently {C:mult}+#1#{C:inactive}){}"
 		}
 	},
 	rarity = 1,
 	atlas = 'B1999',
 	pos = { x = 1, y = 0 },
-	cost = 5,
+	cost = 3,
 	blueprint_compat = true,
 	eternal_compat = true,
 	perishable_compat = false,
-	config = { extra = { mult = 0, mult_gain = 2 } },
+	config = { extra = { mult = 0, mult_gain = 5 } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.mult, card.ability.extra.mult_gain } }
 	end,

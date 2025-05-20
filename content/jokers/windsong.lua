@@ -13,7 +13,7 @@ SMODS.Joker {
 	atlas = 'B1999',
 	pos = { x = 0, y = 1 },
 	cost = 5,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	eternal_compat = true,
 	perishable_compat = true,
 	config = { extra = { x_mult = 3, check = 0 } },
@@ -23,7 +23,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
         local oldnumbah = G.hand.config.highlighted_limit
 		local thing = false
-		if context.play_button then
+		if context.b1999_play_button then
         for k, v in pairs(G.hand.cards) do
             if v:is_suit("Spades") then
                 G.hand.config.highlighted_limit = #G.hand.cards
