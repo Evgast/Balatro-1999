@@ -15,7 +15,7 @@ SMODS.Joker {
 	blueprint_compat = true,
 	eternal_compat = true,
 	perishable_compat = false,
-	config = { extra = { mult = 0, mult_gain = 5 } },
+	config = { extra = { mult = 0, mult_gain = 3 } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.mult, card.ability.extra.mult_gain } }
 	end,

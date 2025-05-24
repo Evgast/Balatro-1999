@@ -1,4 +1,4 @@
-
+G.B1999 = {}
 SMODS.current_mod.optional_features = function()
     return {
 		cardareas = {
@@ -24,6 +24,13 @@ SMODS.load_file("content/jokers/loggerhead.lua")()
 SMODS.load_file("content/vouchers/pneuma.lua")()
 SMODS.load_file("content/decks/timekeeper.lua")()
 
+G.B1999.compat = {
+	partner = (SMODS.Mods['partner'] or {}).can_load or false,
+}
+
+if G.B1999.compat.partner then SMODS.load_file('content/partners/slice.lua')() end
+if G.B1999.compat.partner then SMODS.load_file('content/partners/fmpart.lua')() end
+if G.B1999.compat.partner then SMODS.load_file('content/partners/wspart.lua')() end
 
 SMODS.Atlas {
 	key = "B1999",
@@ -58,4 +65,11 @@ SMODS.Atlas {
 	path = "vouch.png",
 	px = 71,
 	py = 95
+}
+
+SMODS.Atlas{
+    key = "part",
+    px = 46,
+    py = 58,
+    path = "parts.png"
 }

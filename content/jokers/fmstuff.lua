@@ -102,7 +102,9 @@ SMODS.Consumable {
 			if sos then
 				G.FUNCS.discard_cards_from_highlighted()
 				G.hand.config.highlighted_limit = oldnumbah
-				ease_discard(1)
+				if G.GAME.current_round.discards_left > 0 then
+					ease_discard(1)
+				end
 				end
 		end,
 	can_use = function(self, card)
@@ -142,3 +144,11 @@ SMODS.Joker {
 	end
 end
 }
+
+local set_cost_ref = Card.set_cost
+function Card:set_cost()
+    set_cost_ref(self)
+    if self.config.center.key == "c_b1999_mel1" or self.config.center.key == "c_b1999_mel2" then
+       self.sell_cost = 0
+    end
+end
