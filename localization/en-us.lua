@@ -25,9 +25,7 @@ return {
                 name = "Windsong",
                 text = {
                     "{C:mult}+#1#{} Mult for",
-                    "{C:spades}Spades{} held in hand",
-                    "If buffed, {C:mult}+#2#{} Mult for",
-                    "scored {C:spades}Spades{} instead",
+                    "{C:spades}Spades{} #2#",
                 }
             }
         },
