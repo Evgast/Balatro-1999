@@ -13,7 +13,7 @@ end
 SMODS.load_file("hooksmayhaps.lua")()
 SMODS.load_file("content/jokers/anjo.lua")()
 SMODS.load_file("content/jokers/pavia.lua")()
-SMODS.load_file("content/jokers/doorstuff.lua")()
+SMODS.load_file("content/jokers/door.lua")()
 SMODS.load_file("content/jokers/fmstuff.lua")()
 SMODS.load_file("content/jokers/orange.lua")()
 SMODS.load_file("content/jokers/windsong.lua")()
@@ -21,6 +21,10 @@ SMODS.load_file("content/jokers/lopera.lua")()
 SMODS.load_file("content/jokers/jokernia.lua")()
 SMODS.load_file("content/jokers/carbuncles.lua")()
 SMODS.load_file("content/jokers/loggerhead.lua")()
+SMODS.load_file("content/jokers/tf.lua")()
+SMODS.load_file("content/jokers/rainemblem.lua")()
+SMODS.load_file("content/jokers/mradio.lua")()
+SMODS.load_file("content/jokers/catch.lua")()
 SMODS.load_file("content/vouchers/pneuma.lua")()
 SMODS.load_file("content/decks/timekeeper.lua")()
 
@@ -31,6 +35,7 @@ G.B1999.compat = {
 if G.B1999.compat.partner then SMODS.load_file('content/partners/slice.lua')() end
 if G.B1999.compat.partner then SMODS.load_file('content/partners/fmpart.lua')() end
 if G.B1999.compat.partner then SMODS.load_file('content/partners/wspart.lua')() end
+if G.B1999.compat.partner then SMODS.load_file('content/partners/mradio.lua')() end
 
 SMODS.Atlas {
 	key = "B1999",
@@ -49,6 +54,13 @@ SMODS.Atlas {
 SMODS.Atlas {
 	key = "tune",
 	path = "tune.png",
+	px = 71,
+	py = 95
+}
+
+SMODS.Atlas {
+	key = "seal",
+	path = "seal.png",
 	px = 71,
 	py = 95
 }

@@ -1,13 +1,6 @@
 
 SMODS.Joker {
 	key = 'jokernia',
-	loc_txt = {
-		name = 'Escaping Kakania',
-		text = {
-            "Gains {C:attention}$9{} of {C:attention}sell value{}",
-            "when changing {C:attention}ante{}"
-		}
-	},
 	rarity = 1,
 	atlas = 'B1999',
 	pos = { x = 2, y = 1 },

@@ -35,14 +35,6 @@ SMODS.ConsumableType{
 SMODS.Consumable {
 	key = 'mel1',
 	set = 'tune',
-	loc_txt = {
-		name = 'First Melody 1',
-		text = {
-			'Temporarily {C:attention}ranks up{} a',
-			'chosen {C:attention}card{}',
-			'{C:red}dissolved{} at the',
-			'end of the round'
-	}},
 	atlas = "tune",
 	pos = { x = 0, y = 0 },
 	cost = 0,
@@ -73,13 +65,6 @@ SMODS.Consumable {
 SMODS.Consumable {
 	key = 'mel2',
 	set = 'tune',
-	loc_txt = {
-		name = 'First Melody 2',
-		text = {
-			'Discards your {C:attention}hand{}',
-			'{C:red}dissolved{} at the',
-			'end of the round'
-	}},
 	atlas = "tune",
 	pos = { x = 1, y = 0 },
 	cost = 0,
@@ -133,6 +118,8 @@ SMODS.Joker {
 	perishable_compat = true,
 	config = { extra = { x_mult = 3, check = 0 } },
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS["c_b1999_mel1"]
+		info_queue[#info_queue + 1] = G.P_CENTERS["c_b1999_mel2"]
 		return { vars = { colours = { HEX("638fe1") } } }
 	end,
 	calculate = function(self, card, context)

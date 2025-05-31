@@ -2,17 +2,6 @@
 
 SMODS.Joker {
 	key = 'car',
-	loc_txt = {
-		name = 'Carbuncle',
-		text = {
-			"{C:mult}+#1#{} mult",
-			"After {C:attention}3 rounds{},",
-			"{C:red}snatches a {C:attention}consumable{} if",
-			"Carbuncle is the {C:attention}rightmost{}",
-			"{C:attention}Joker{} and {C:attention}evolves{}",
-			"{C:inactive}(Currently {C:attention}#2#/3{C:inactive})"
-		}
-	},
 	rarity = 2,
 	atlas = 'buncles',
 	pos = { x = 0, y = 0 },
@@ -64,16 +53,6 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = 'carton',
-	loc_txt = {
-		name = 'Cartoncle',
-		text = {
-			"Chooses to {C:attention}select{} either",
-			"{C:attention}leftmost{} or {C:attention}rightmost{}",
-			"card {C:attention}held in hand{}",
-			"when using a {C:attention}consumable{}",
-			"{s:0.8,C:inactive}Unreliable partner{}"
-		}
-	},
 	rarity = 2,
 	in_pool = function(self)
     return false
@@ -89,7 +68,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.rounds } }
 	end,
 	calculate = function(self, card, context)
-		if context.b1999_use_card and (G.STATE == G.STATES.SELECTING_HAND or G.STATE == G.STATES.SMODS_BOOSTER_OPENED) then
+		if context.b1999_use_card and #G.hand.highlighted == 1 then
 		local leftright = pseudorandom('biggering', 1, 2)
 			if leftright == 1 then
 				local carded = G.hand.cards[1]
@@ -108,17 +87,6 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = 'geo',
-	loc_txt = {
-		name = 'Geometry Carbuncle',
-		text = {
-			"Eats leftmost consumable",
-			"with {C:green}#2# in #1#{} change to upgrade",
-			"{C:attention}played hand{}, degrades",
-			"{C:attention}played hand{} when",
-			"there's no {C:attention}consumables{}",
-			"{s:0.8,C:inactive}(Degrade effect isn't probability based){}"
-		}
-	},
 	rarity = 2,
 	in_pool = function(self)
     return false
@@ -153,15 +121,6 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = 'refine',
-	loc_txt = {
-		name = 'Refined Carbuncle',
-		text = {
-			"Gains {X:mult,C:white}X#2#{} Mult when",
-			"using a {C:spectral}Spectral Card{}",
-			"{s:0.8,C:inactive}So refined, so reliable",
-			"{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} mult){}"
-		}
-	},
 	rarity = 2,
 	in_pool = function(self)
     return false

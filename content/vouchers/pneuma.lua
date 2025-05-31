@@ -3,14 +3,6 @@ local limbob = false
 
 SMODS.Voucher {
 	key = 'pneuma',
-	loc_txt = {
-		name = 'Pneuma Analysis',
-		text = {
-			"Requirement for the",
-			"current {c:attention}Boss Blind{} is {C:red}doubled{},",
-			"{C:attention}#1#{} ante when starting the {C:attention}Boss Blind{}"
-		}
-	},
 	atlas = 'vouch',
 	pos = { x = 0, y = 0 },
 	cost = 10,
@@ -33,15 +25,6 @@ SMODS.Voucher {
 
 SMODS.Voucher {
 	key = 'limbo',
-	loc_txt = {
-		name = 'Limbo',
-		text = {
-			"Requirement for the",
-			"current {c:attention}Boss Blind{} is {C:red}doubled{},",
-			"changes into a {C:red}Showdown Blind{},",
-			"{C:attention}#1#{} ante when starting the {C:attention}Boss Blind{}"
-		}
-	},
 	atlas = 'vouch',
 	pos = { x = 0, y = 1 },
 	cost = 10,

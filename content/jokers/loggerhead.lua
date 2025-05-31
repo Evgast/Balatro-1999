@@ -1,13 +1,5 @@
 SMODS.Joker {
     key = "loggerhead",
-    loc_txt = {
-		name = 'Loggerhead',
-		text = {
-			"Retriggers {C:attention}Joker{}",
-            "to the right when not",
-            "{C:attention}playing a hand{}",
-		}
-	},
     blueprint_compat = true,
     eternal_compat = true,
 	perishable_compat = true,

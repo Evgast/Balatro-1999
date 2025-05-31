@@ -1,23 +1,15 @@
 SMODS.Joker {
 	key = 'anjo',
-	loc_txt = {
-		name = 'Anjo Nala',
-		text = {
-			"{X:mult,C:white}X#1#{} mult after triggering",
-            "{C:attention}Joker{} to the right 5 times",
-            "{C:inactive}(Currently {C:attention}#2#/5{C:inactive}){}",
-		}
-	},
 	rarity = 3,
 	atlas = 'B1999',
 	pos = { x = 0, y = 0 },
-	cost = 8,
-	blueprint_compat = false,
+	cost = 7,
+	blueprint_compat = true,
 	eternal_compat = true,
-	perishable_compat = true,
-	config = { extra = { x_mult = 3, check = 0 } },
+	perishable_compat = false,
+	config = { extra = { x_mult = 1, x_mult_gain = 0.25 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.x_mult, card.ability.extra.check } }
+		return { vars = { card.ability.extra.x_mult, card.ability.extra.x_mult_gain } }
 	end,
 	calculate = function(self, card, context)
 		for i=1, #G.jokers.cards do
@@ -32,15 +24,30 @@ SMODS.Joker {
 							card = joker
 						}
 					end
-				end
 					end
-					if context.joker_main and card.ability.extra.check == 5 and not context.blueprint then
+					if card.ability.extra.check == 4 then
+					if my_pos and context.other_card == G.jokers.cards[my_pos + 1] and context.post_trigger and not context.blueprint then
+						card.ability.extra.check = card.ability.extra.check + 1
+						return {
+							message = "+X" .. card.ability.extra.x_mult_gain ,
+							colour = G.C.RARITY[4],
+							card = joker
+						}
+					end
+					end
+					end
+					if card.ability.extra.check >= 5 and not context.blueprint then
+						card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_gain
 						card.ability.extra.check = 0
+						return {
+							message = "X" .. card.ability.extra.x_mult_gain .. " gained!"
+						}
+					end
+					if context.joker_main and card.ability.extra.x_mult > 1 then
 						return {
 						  x_mult_mod = card.ability.extra.x_mult,
 						}
 					  end
-
 			end
 	end
 }

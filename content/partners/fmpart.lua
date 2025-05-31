@@ -17,7 +17,7 @@ Partner_API.Partner{
         if context.partner_main and card.ability.extra.moxie < card.ability.extra.moxie_max then
             local benefits = 1
             if next(SMODS.find_card("j_b1999_fm")) then benefits = 2 end
-            card.ability.extra.moxie = card.ability.extra.moxie + card.ability.extra.moxie_gain
+            card.ability.extra.moxie = card.ability.extra.moxie + card.ability.extra.moxie_gain * benefits
         end
         if card.ability.extra.moxie > card.ability.extra.moxie_max then
             card.ability.extra.moxie = card.ability.extra.moxie_max

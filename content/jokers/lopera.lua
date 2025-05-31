@@ -1,14 +1,5 @@
 SMODS.Joker {
 	key = 'lopera',
-	loc_txt = {
-		name = 'Lopera',
-		text = {
-            "{C:chips}+#1#{} chips when",
-			"{C:attention}Joker{} to the left triggers,",
-			"{C:mult}+#2#{} mult when {C:attention}Joker{}",
-			"to the right triggers",
-		}
-	},
 	rarity = 2,
 	atlas = 'B1999',
 	pos = { x = 1, y = 1 },

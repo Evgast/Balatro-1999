@@ -3,13 +3,6 @@ SMODS.Back{
     key = "td",
 	atlas = "ba",
     pos = {x = 0, y = 0},
-    loc_txt = {
-        name = "Timekeeper's Deck",
-        text = {
-            "Start with eternal",
-            "{C:attention,T:j_b1999_fm}First Melody{} Joker"
-        }
-    },
     apply = function(self)
 		G.E_MANAGER:add_event(Event({
 			func = function()

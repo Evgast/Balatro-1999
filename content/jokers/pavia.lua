@@ -1,13 +1,5 @@
 SMODS.Joker {
 	key = 'pav',
-	loc_txt = {
-		name = 'Pavia',
-		text = {
-			"Gains {C:mult}+#2#{} Mult",
-            "after selling a {C:attention}Joker{}",
-			"{C:inactive}(Currently {C:mult}+#1#{C:inactive}){}"
-		}
-	},
 	rarity = 1,
 	atlas = 'B1999',
 	pos = { x = 1, y = 0 },

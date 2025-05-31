@@ -1,15 +1,6 @@
 
 SMODS.Joker {
 	key = 'orange',
-	loc_txt = {
-		name = 'Green Oranges',
-		text = {
-			'When playing a hand:',
-            '{C:red}"Eats"{} a {C:attention}consumable{},',
-			'transforms on {C:attention}6{} eaten',
-			"{C:inactive}(Currently: {C:attention}#1#{C:inactive}){}"
-		}
-	},
 	rarity = 2,
 	atlas = 'B1999',
 	no_pool_flag = 'eaten',
@@ -45,14 +36,6 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = 'gun',
-	loc_txt = {
-		name = 'S192-9W',
-		text = {
-			"Don't you think this",
-			"orange tastes bitter?",
-			"{X:mult,C:white}X#1#{} Mult"
-		}
-	},
 	rarity = 2,
 	atlas = 'B1999',
 	yes_pool_flag = "eaten",

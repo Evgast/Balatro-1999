@@ -1,14 +1,6 @@
 
 SMODS.Joker {
 	key = 'ws',
-	loc_txt = {
-		name = 'Windsong',
-		text = {
-			"All {C:spades}Spades {C:attention}held in hand{}",
-			"are added to {C:attention}playing hand{},",
-			"{C:spades}Spades{} always score"
-		}
-	},
 	rarity = 2,
 	atlas = 'B1999',
 	pos = { x = 0, y = 1 },
