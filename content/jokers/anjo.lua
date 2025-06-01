@@ -7,9 +7,9 @@ SMODS.Joker {
 	blueprint_compat = true,
 	eternal_compat = true,
 	perishable_compat = false,
-	config = { extra = { x_mult = 1, x_mult_gain = 0.25 } },
+	config = { extra = { x_mult = 1, check = 0, x_mult_gain = 0.25 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.x_mult, card.ability.extra.x_mult_gain } }
+		return { vars = { card.ability.extra.x_mult, card.ability.extra.check, card.ability.extra.x_mult_gain } }
 	end,
 	calculate = function(self, card, context)
 		for i=1, #G.jokers.cards do
