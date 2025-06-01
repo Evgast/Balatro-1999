@@ -291,7 +291,7 @@ return {
                     },
                     pnr_b1999_ws_1={
                     "It's a pleasure to work",
-                    "with you, {C:attention}Ms. Timekeeper.{}",
+                    "with you, {C:attention}Ms. Timekeeper{}.",
                     },
                     pnr_b1999_ws_2={
                     "You're finally here!",
@@ -299,6 +299,22 @@ return {
                     },
                     pnr_b1999_ws_3={
                     "No other study could show you this!",
+                    },
+                    pnr_b1999_mradio_1={
+                    "Hello, world."
+                    },
+                    pnr_b1999_mradio_2={
+                    "FM, FM, the latest news for you next..."
+                    },
+                    pnr_b1999_mradio_3={
+                    "Welcome... My good friend.",
+                    },
+                    pnr_b1999_mradio_4={
+                    "I've selected some morning news from 249 regions... ",
+                    "Would you like to know which region consumes the most meat every morning?",
+                    },
+                    pnr_b1999_mradio_5={
+                    "Alright! Let's try together.",
                     },
             },
         }
