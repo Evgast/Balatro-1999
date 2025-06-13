@@ -68,7 +68,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.rounds } }
 	end,
 	calculate = function(self, card, context)
-		if context.b1999_use_card and #G.hand.highlighted == 1 then
+		if context.b1999_use_card and #G.hand.highlighted >= 1 then
 		local leftright = pseudorandom('biggering', 1, 2)
 			if leftright == 1 then
 				local carded = G.hand.cards[1]

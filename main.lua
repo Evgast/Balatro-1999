@@ -27,6 +27,7 @@ SMODS.load_file("content/jokers/mradio.lua")()
 SMODS.load_file("content/jokers/catch.lua")()
 SMODS.load_file("content/vouchers/pneuma.lua")()
 SMODS.load_file("content/decks/timekeeper.lua")()
+SMODS.load_file("content/spectral/storm.lua")()
 
 G.B1999.compat = {
 	partner = (SMODS.Mods['partner'] or {}).can_load or false,
@@ -79,9 +80,52 @@ SMODS.Atlas {
 	py = 95
 }
 
+SMODS.Atlas {
+	key = "spectr",
+	path = "spectr.png",
+	px = 71,
+	py = 95
+}
+
 SMODS.Atlas{
     key = "part",
     px = 46,
     py = 58,
     path = "parts.png"
 }
+
+
+-- ngl... Completely stole this from Handsome Devils mod
+function G.B1999.poll_tag(seed, options, exclusions)
+  local pool = options or get_current_pool('Tag')
+  if exclusions then
+    for excluded_index = 1, #exclusions do
+      for pool_index = 1, #pool do
+        if exclusions[excluded_index] == pool[pool_index] then
+          table.remove(pool, pool_index)
+          break
+        end
+      end
+    end
+  end
+  local tag_key = pseudorandom_element(pool, pseudoseed(seed))
+  while tag_key == 'UNAVAILABLE' do
+    tag_key = pseudorandom_element(pool, pseudoseed(seed))
+  end
+  local tag = Tag(tag_key)
+  if tag_key == "tag_orbital" then
+    local available_hands = {}
+    for k, hand in pairs(G.GAME.hands) do
+      if hand.visible then
+        available_hands[#available_hands + 1] = k
+      end
+    end
+    tag.ability.orbital_hand = pseudorandom_element(available_hands, pseudoseed(seed .. '_orbital'))
+  end
+  return tag
+end
+if not Card.scale_value then
+	function Card:scale_value(applied_value, scalar)
+		return applied_value + scalar
+	end
+end

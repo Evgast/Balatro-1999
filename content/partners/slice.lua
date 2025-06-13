@@ -27,13 +27,13 @@ Partner_API.Partner{
 					}
                 end
             end
-                if context.partner_main and card.ability.extra.x_mult > 1 then
+                if context.joker_main and card.ability.extra.x_mult > 1 then
                     return {
                         message = localize{type = "variable", key = "a_xmult", vars = {card.ability.extra.x_mult}},
                         Xmult_mod = card.ability.extra.x_mult,
                     }
                     end
-                if context.partner_after then
+                if context.after then
                     G.E_MANAGER:add_event(Event({func = function()
                     card.ability.extra.x_mult = 1
                 return true end}))

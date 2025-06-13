@@ -3,7 +3,7 @@ Partner_API.Partner{
     name = "Ms. Radio",
     unlocked = true,
     discovered = true,
-    no_quips = false,
+    individual_quips = true,
     pos = {x = 3, y = 0},
     loc_txt = {},
     atlas = "part",
@@ -14,7 +14,7 @@ Partner_API.Partner{
         return { vars = { card.ability.extra.chip_procent * benefits } }
     end,
     calculate = function(self, card, context)
-        if context.partner_selling_card then
+        if context.selling_card then
             local benefits = 1
             if next(SMODS.find_card("j_b1999_mradio")) then benefits = 2 end
             G.GAME.blind.chips = G.GAME.blind.chips - (G.GAME.blind.chips * ((card.ability.extra.chip_procent * benefits) / 100))

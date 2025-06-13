@@ -1,3 +1,5 @@
+
+
 SMODS.Joker {
 	key = 'tf',
 	rarity = 2,
@@ -14,7 +16,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.teeth, card.ability.extra.t_word } }
 	end,
 	calculate = function(self, card, context)
-		if context.joker_main and not context.blueprint then
+		if context.joker_main and card.ability.extra.teeth < 3 and not context.blueprint then
 			card.ability.extra.teeth = card.ability.extra.teeth + 1
 		end
         if card.ability.extra.teeth == 1 and not context.blueprint then
@@ -37,6 +39,8 @@ SMODS.Joker {
 SMODS.Seal {
 	key = 'tooth',
 	atlas = 'seal',
+	yes_pool_flag = 'nope',
+	badge_colour = HEX('FFFDB5'),
 	pos = { x = 0, y = 0 },
 	loc_vars = function(self, info_queue, card)
 		return { vars = {} }

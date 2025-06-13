@@ -193,7 +193,48 @@ return {
                 "{X:mult,C:white}X#3#{} Mult"
 	            }
             },
+                j_b1999_cream = {
+                    name = 'Creame',
+		            text = {
+                "{C:chips}+#1#{} Chips",
+                "for every hand played",
+                "{C:inactive}(Currently {C:chips}+#2#{C:inactive})"
+	            }
+            },
+                j_b1999_turtle = {
+                    name = 'Kala Vada',
+		            text = {
+                "After {C:attention}#2# rounds,",
+                "sell this card to gain",
+                "{C:attention}+#3#{} hand size",
+                "{C:inactive}(Currently {C:attention}#1#/#2#{C:inactive})"
+	            }
+            },
+                j_b1999_gross = {
+                    name = 'Gross Mike',
+		            text = {
+                "{C:green}#4# in #3#{} to gain {C:mult}+#2#{} Mult",
+                "at the end of round",
+                "{C:inactive}(Currently {C:mult}+#1#{} {C:inactive}Mult)"
+	            }
+            },
+                j_b1999_will = {
+                    name = 'Will',
+		            text = {
+                "{C:green}#4# in #3#{} to gain {X:mult,C:white}X#2#{} Mult",
+                "at the end of round",
+                "{C:inactive}(Currently {X:mult,C:white}X#1#{} {C:inactive}Mult)"
+	            }
+            },
+                j_b1999_papper = {
+                    name = 'Dr Papper',
+		            text = {
+                "Create a random {C:attention}Tag{}",
+                "Every {C:attention}#2#{} rounds",
+                "{C:inactive}(Currently {C:attention}#1#{C:inactive})"
+            },
         },
+    },
             Back={
                 b_b1999_td = {
                     name = "Timekeeper's Deck",
@@ -222,9 +263,16 @@ return {
 		        }
             }
         },
+        Spectral={
+                c_b1999_storm = {
+                    name = 'The Storm',
+		            text = {
+			    "{X:default,C:attention}Reverses{} a selected {C:attention}Joker{}"
+		        }
+            },
+        },
             Other={
                 b1999_tooth_seal = {
-                    label = "A Tooth",
 		            name = 'A Tooth',
 		            text = {
 			    "{X:mult,C:white}X1.5{} Mult",
@@ -246,6 +294,14 @@ return {
 		            name = 'Artist',
 		            text = {
 			    '@aetherskye'
+                }
+            },
+                reverse = {
+		            name = 'Reverse',
+		            text = {
+			    '{C:attention}Reroll{} a {C:attention}Joker{} into',
+                'a {C:attention}Joker{} of the same {C:attention}rarity{}',
+                'Has some {C:attention}special interactions{}'
                 }
             },
         },
@@ -270,6 +326,9 @@ return {
         },
     },
                 misc = {
+                labels = {
+                    b1999_tooth_seal = "A Tooth",
+                },
                 quips={
                     pnr_b1999_slice_1={
                     "No...",

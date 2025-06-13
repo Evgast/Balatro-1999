@@ -21,7 +21,6 @@ SMODS.Joker {
 						return {
 							message = " " .. card.ability.extra.check ,
 							colour = G.C.RARITY[4],
-							card = joker
 						}
 					end
 					end
@@ -31,7 +30,6 @@ SMODS.Joker {
 						return {
 							message = "+X" .. card.ability.extra.x_mult_gain ,
 							colour = G.C.RARITY[4],
-							card = joker
 						}
 					end
 					end

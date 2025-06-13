@@ -1,24 +1,21 @@
-Partner_API.Partner{
-    key = "mradio",
-    name = "Ms. Radio",
-    unlocked = true,
-    discovered = true,
-    individual_quips = true,
-    pos = {x = 3, y = 0},
-    loc_txt = {},
-    atlas = "part",
-    config = {extra = { related_card = "j_b1999_mradio", chip_procent = 5 }},
-    loc_vars = function(self, info_queue, card)
-        local benefits = 1
-        if next(SMODS.find_card("j_b1999_mradio")) then benefits = 2 end
-        return { vars = { card.ability.extra.chip_procent * benefits } }
-    end,
-    calculate = function(self, card, context)
-        if context.partner_selling_card then
-            local benefits = 1
-            if next(SMODS.find_card("j_b1999_mradio")) then benefits = 2 end
-            G.GAME.blind.chips = G.GAME.blind.chips - (G.GAME.blind.chips * ((card.ability.extra.chip_procent * benefits) / 100))
+SMODS.Joker {
+	key = 'mradio',
+	rarity = 1,
+	atlas = 'B1999',
+	pos = { x = 0, y = 2 },
+	cost = 3,
+	blueprint_compat = true,
+	eternal_compat = false,
+	perishable_compat = true,
+	config = { extra = { chip_procent = 25 } },
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.chip_procent } }
+	end,
+	calculate = function(self, card, context)
+		if context.selling_self then
+            G.GAME.blind.chips = G.GAME.blind.chips - (G.GAME.blind.chips * (card.ability.extra.chip_procent / 100))
             G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
         end
-    end
+	end
 }
+

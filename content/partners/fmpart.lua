@@ -14,7 +14,7 @@ Partner_API.Partner{
         return { vars = { card.ability.extra.moxie, card.ability.extra.moxie_gain * benefits, card.ability.extra.moxie_max, card.ability.extra.fm1_cost, card.ability.extra.fm2_cost, colours = { HEX("638fe1") } } }
     end,
     calculate = function(self, card, context)
-        if context.partner_main and card.ability.extra.moxie < card.ability.extra.moxie_max then
+        if context.joker_main and card.ability.extra.moxie < card.ability.extra.moxie_max then
             local benefits = 1
             if next(SMODS.find_card("j_b1999_fm")) then benefits = 2 end
             card.ability.extra.moxie = card.ability.extra.moxie + card.ability.extra.moxie_gain * benefits
