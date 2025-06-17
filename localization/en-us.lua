@@ -193,7 +193,7 @@ return {
                 "{X:mult,C:white}X#3#{} Mult"
 	            }
             },
-                j_b1999_cream = {
+                j_b1999_creame = {
                     name = 'Creame',
 		            text = {
                 "{C:chips}+#1#{} Chips",
@@ -201,7 +201,7 @@ return {
                 "{C:inactive}(Currently {C:chips}+#2#{C:inactive})"
 	            }
             },
-                j_b1999_turtle = {
+                j_b1999_kala = {
                     name = 'Kala Vada',
 		            text = {
                 "After {C:attention}#2# rounds,",
@@ -241,6 +241,14 @@ return {
                     text = {
                 "Start with eternal",
                 "{C:attention,T:j_b1999_fm}First Melody{} Joker"
+                }
+            },
+                b_b1999_stormy = {
+                    name = "Storm Deck",
+                    text = {
+                "{X:default,C:attention}Reverses{} your leftmost {C:attention}Joker{}",
+                "on {C:attention}Ante Change{}",
+                "{C:money}-5${} if can't {X:default,C:attention}Reverse{}"
                 }
             },
         },
@@ -296,12 +304,13 @@ return {
 			    '@aetherskye'
                 }
             },
-                reverse = {
+                b1999_reverse = {
 		            name = 'Reverse',
 		            text = {
 			    '{C:attention}Reroll{} a {C:attention}Joker{} into',
                 'a {C:attention}Joker{} of the same {C:attention}rarity{}',
-                'Has some {C:attention}special interactions{}'
+                "Can't reroll an {C:attention}Eternal Joker{}",
+                'Has some {C:attention}Special Interactions{}'
                 }
             },
         },

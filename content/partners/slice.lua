@@ -7,19 +7,22 @@ Partner_API.Partner{
     pos = {x = 0, y = 0},
     loc_txt = {},
     atlas = "part",
-    config = {extra = { related_card = { "j_b1999_orange", "j_b1999_gun" }, x_mult = 1, x_mult_gain = 0.25 }},
+    config = {extra = { x_mult = 1, x_mult_gain = 0.25 }},
+    link_config = {j_b1999_orange = 1, j_b1999_gun = 2},
     loc_vars = function(self, info_queue, card)
+        local link_level = self:get_link_level()
         local benefits = 1
-        if next(SMODS.find_card("j_b1999_orange")) or next(SMODS.find_card("j_b1999_gun")) then benefits = 2 end
+        if link_level == 1 then benefits = 2 end
+        if link_level == 2 then benefits = 3 end
         return { vars = { card.ability.extra.x_mult, card.ability.extra.x_mult_gain * benefits } }
     end,
     calculate = function(self, card, context)
-        local dud = false
 				for i=1, #G.consumeables.cards do
                     if context.partner_click and G.STATE == G.STATES.SELECTING_HAND then
+                    local link_level = self:get_link_level()
                     local benefits = 1
-                    dud = true
-                    if next(SMODS.find_card("j_b1999_orange")) or next(SMODS.find_card("j_b1999_gun")) then benefits = 2 end
+                    if link_level == 1 then benefits = 2 end
+                    if link_level == 2 then benefits = 3 end
 					G.consumeables.cards[i]:start_dissolve()
                     card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_gain * benefits
 					return {
@@ -40,4 +43,3 @@ Partner_API.Partner{
                     end
             end
 }
-

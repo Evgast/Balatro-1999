@@ -60,8 +60,6 @@ SMODS.Consumable {
 	end
 }
 
-
-
 SMODS.Consumable {
 	key = 'mel2',
 	set = 'tune',

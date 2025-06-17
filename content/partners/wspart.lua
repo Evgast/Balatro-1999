@@ -7,12 +7,14 @@ Partner_API.Partner{
     pos = {x = 2, y = 0},
     loc_txt = {},
     atlas = "part",
-    config = {extra = { related_card = "j_b1999_ws", mult = 2, held = "held in hand" }},
+    config = {extra = { mult = 2, held = "held in hand" }},
+    link_config = {j_b1999_ws = 1},
     loc_vars = function(self, info_queue, card)
+        local link_level = self:get_link_level()
         local benefits = false
         card.ability.extra.held = "held in hand"
         card.ability.extra.mult = 2
-        if next(SMODS.find_card("j_b1999_ws")) then
+        if link_level == 1 then
             benefits = true
             card.ability.extra.held = "scored"
             card.ability.extra.mult = 3
@@ -20,10 +22,11 @@ Partner_API.Partner{
         return { vars = { card.ability.extra.mult, card.ability.extra.held } }
     end,
     calculate = function(self, card, context)
+        local link_level = self:get_link_level()
         local benefits = false
         card.ability.extra.mult = 2
         card.ability.extra.held = "held in hand"
-        if next(SMODS.find_card("j_b1999_ws")) then
+        if link_level == 1 then
             benefits = true
             card.ability.extra.held = "scored"
             card.ability.extra.mult = 3

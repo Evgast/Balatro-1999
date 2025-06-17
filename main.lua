@@ -25,8 +25,14 @@ SMODS.load_file("content/jokers/tf.lua")()
 SMODS.load_file("content/jokers/rainemblem.lua")()
 SMODS.load_file("content/jokers/mradio.lua")()
 SMODS.load_file("content/jokers/catch.lua")()
+SMODS.load_file("content/jokers/creame.lua")()
+SMODS.load_file("content/jokers/kala.lua")()
+SMODS.load_file("content/jokers/gross.lua")()
+SMODS.load_file("content/jokers/will.lua")()
+SMODS.load_file("content/jokers/papper.lua")()
 SMODS.load_file("content/vouchers/pneuma.lua")()
 SMODS.load_file("content/decks/timekeeper.lua")()
+SMODS.load_file("content/decks/stormd.lua")()
 SMODS.load_file("content/spectral/storm.lua")()
 
 G.B1999.compat = {
@@ -37,6 +43,7 @@ if G.B1999.compat.partner then SMODS.load_file('content/partners/slice.lua')() e
 if G.B1999.compat.partner then SMODS.load_file('content/partners/fmpart.lua')() end
 if G.B1999.compat.partner then SMODS.load_file('content/partners/wspart.lua')() end
 if G.B1999.compat.partner then SMODS.load_file('content/partners/mradio.lua')() end
+
 
 SMODS.Atlas {
 	key = "B1999",

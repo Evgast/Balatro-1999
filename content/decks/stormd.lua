@@ -1,35 +1,35 @@
-SMODS.Consumable {
-	key = 'storm',
-	set = 'Spectral',
-	atlas = "spectr",
-	pos = { x = 0, y = 0 },
-	cost = 4,
-	loc_vars = function(self, info_queue, card)
-		info_queue[#info_queue + 1] = { key = "reverse", set = 'Other' }
-	end,
-	use = function (self, card, area)
-		local rara = nil
+SMODS.Back{
+    name = "Storm Deck",
+    key = "stormy",
+	atlas = "ba",
+    pos = {x = 0, y = 0},
+    calculate = function (self, back, context)
+        local rara = nil
 		local truerara = nil
 		local specil = nil
 		local rarara = true
-		G.hand:unhighlight_all()
-			for i=1, #G.jokers.highlighted do
-				rara = G.jokers.highlighted[i]
+            if context.b1999_ante_change then
+            if #G.jokers.cards == 0 then
+                ease_dollars(-5)
+            end
+            if #G.jokers.cards > 0 then
+				rara = G.jokers.cards[1]
 				truerara = rara.config.center.rarity
 				specil = rara.config.center.key
+            if not rara.ability.eternal then
 					if specil == "j_ice_cream" then
 						SMODS.add_card({key = "j_b1999_cream"})
 						rara:start_dissolve()
 						rarara = false
-					elseif specil == "j_b1999_creame" then
+					elseif specil == "j_b1999_cream" then
 						SMODS.add_card({key = "j_ice_cream"})
 						rara:start_dissolve()
 						rarara = false
 					elseif specil == "j_turtle_bean" then
-						SMODS.add_card({key = "j_b1999_kala"})
+						SMODS.add_card({key = "j_b1999_turtle"})
 						rara:start_dissolve()
 						rarara = false
-					elseif specil == "j_b1999_kala" then
+					elseif specil == "j_b1999_turtle" then
 						SMODS.add_card({key = "j_turtle_bean"})
 						rara:start_dissolve()
 						rarara = false
@@ -72,25 +72,10 @@ SMODS.Consumable {
 				SMODS.add_card({set = "Joker", rarity = truerara})
 				rara:start_dissolve()
 				end
-			end
-		end,
-	can_use = function(self, card)
-			if #G.jokers.highlighted == 1 and not G.jokers.highlighted[1].ability.eternal then
-			return true else return false
-		end
-	end
+			else
+                ease_dollars(-5)
+            end
+    end
+end
+end
 }
-
-SMODS.Rarity({
-	key = "reversed",
-	loc_txt = {name = "Reversed"},
-	badge_colour = HEX("638fe1"),
-})
-
-
-
-
-
-
-
-

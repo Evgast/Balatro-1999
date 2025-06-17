@@ -7,16 +7,19 @@ Partner_API.Partner{
     pos = {x = 1, y = 0},
     loc_txt = {},
     atlas = "part",
-    config = {extra = { related_card = "j_b1999_fm", moxie = 100, moxie_gain = 10, moxie_max = 100, fm1_cost = 50, fm2_cost = 25 }},
+    config = {extra = { moxie = 100, moxie_gain = 10, moxie_max = 100, fm1_cost = 50, fm2_cost = 25 }},
+    link_config = {j_b1999_fm = 1},
     loc_vars = function(self, info_queue, card)
+        local link_level = self:get_link_level()
         local benefits = 1
-        if next(SMODS.find_card("j_b1999_fm")) then benefits = 2 end
+        if link_level == 1 then benefits = 2 end
         return { vars = { card.ability.extra.moxie, card.ability.extra.moxie_gain * benefits, card.ability.extra.moxie_max, card.ability.extra.fm1_cost, card.ability.extra.fm2_cost, colours = { HEX("638fe1") } } }
     end,
     calculate = function(self, card, context)
         if context.joker_main and card.ability.extra.moxie < card.ability.extra.moxie_max then
+            local link_level = self:get_link_level()
             local benefits = 1
-            if next(SMODS.find_card("j_b1999_fm")) then benefits = 2 end
+            if link_level == 1 then benefits = 2 end
             card.ability.extra.moxie = card.ability.extra.moxie + card.ability.extra.moxie_gain * benefits
         end
         if card.ability.extra.moxie > card.ability.extra.moxie_max then
