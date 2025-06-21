@@ -1,3 +1,5 @@
+SpecilReverse("j_cavendish","j_b1999_will")
+
 SMODS.Joker {
 	key = 'will',
 	rarity = 'b1999_reversed',

@@ -1,3 +1,5 @@
+SpecilReverse("j_diet_cola","j_b1999_papper")
+
 SMODS.Joker {
 	key = 'papper',
 	rarity = 'b1999_reversed',
@@ -18,8 +20,8 @@ SMODS.Joker {
 				message = "+1"
 			}
 		end
-		if context.end_of_round and context.main_eval and card.ability.extra.pap_round >= card.ability.extra.total_rounds and not context.blueprint then
-			add_tag(G.B1999.poll_tag("papper",  nil, {}))
+		if context.end_of_round and card.ability.extra.pap_round == card.ability.extra.total_rounds and not context.blueprint then
+			add_tag(B1999.poll_tag("papper",  nil, {}))
 			card.ability.extra.pap_round = 0
 		end
 	end

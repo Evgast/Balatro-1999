@@ -1,3 +1,5 @@
+SpecilReverse("j_turtle_bean","j_b1999_kala")
+
 SMODS.Joker {
 	key = 'kala',
 	rarity = 'b1999_reversed',
