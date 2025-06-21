@@ -11,6 +11,8 @@ SMODS.current_mod.optional_features = function()
 end
 
 SMODS.load_file("hooksmayhaps.lua")()
+SMODS.load_file("oof, gimmicky/reverse.lua")()
+
 SMODS.load_file("content/jokers/anjo.lua")()
 SMODS.load_file("content/jokers/pavia.lua")()
 SMODS.load_file("content/jokers/door.lua")()
