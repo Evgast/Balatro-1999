@@ -5,7 +5,7 @@ SMODS.Consumable {
 	pos = { x = 0, y = 0 },
 	cost = 4,
 	loc_vars = function(self, info_queue, card)
-		info_queue[#info_queue + 1] = { key = "reverse", set = 'Other' }
+		info_queue[#info_queue + 1] = { key = "b1999_reverse", set = 'Other' }
 	end,
 	use = function (self, card, area)
 		local rara = nil
