@@ -1,4 +1,4 @@
-G.B1999 = {}
+B1999 = {}
 SMODS.current_mod.optional_features = function()
     return {
 		cardareas = {
@@ -37,14 +37,14 @@ SMODS.load_file("content/decks/timekeeper.lua")()
 SMODS.load_file("content/decks/stormd.lua")()
 SMODS.load_file("content/spectral/storm.lua")()
 
-G.B1999.compat = {
+B1999.compat = {
 	partner = (SMODS.Mods['partner'] or {}).can_load or false,
 }
 
-if G.B1999.compat.partner then SMODS.load_file('content/partners/slice.lua')() end
-if G.B1999.compat.partner then SMODS.load_file('content/partners/fmpart.lua')() end
-if G.B1999.compat.partner then SMODS.load_file('content/partners/wspart.lua')() end
-if G.B1999.compat.partner then SMODS.load_file('content/partners/mradio.lua')() end
+if B1999.compat.partner then SMODS.load_file('content/partners/slice.lua')() end
+if B1999.compat.partner then SMODS.load_file('content/partners/fmpart.lua')() end
+if B1999.compat.partner then SMODS.load_file('content/partners/wspart.lua')() end
+if B1999.compat.partner then SMODS.load_file('content/partners/mradio.lua')() end
 
 
 SMODS.Atlas {
@@ -105,7 +105,7 @@ SMODS.Atlas{
 
 
 -- ngl... Completely stole this from Handsome Devils mod
-function G.B1999.poll_tag(seed, options, exclusions)
+function B1999.poll_tag(seed, options, exclusions)
   local pool = options or get_current_pool('Tag')
   if exclusions then
     for excluded_index = 1, #exclusions do
