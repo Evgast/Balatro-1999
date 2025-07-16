@@ -41,8 +41,8 @@ return {
                     name = 'Anjo Nala',
                     text = {
                 "Gains {X:mult,C:white}X#3#{} Mult after triggering",
-                "{C:attention}Joker{} to the right 5 times",
-                "{C:inactive}(Currently {C:attention}#2#/5{C:inactive}, {X:mult,C:white}X#1#{}{C:inactive} Mult){}",
+                "{C:attention}Joker{} to the right #4# times",
+                "{C:inactive}(Currently {C:attention}#2#/#4#{C:inactive}, {X:mult,C:white}X#1#{}{C:inactive} Mult){}",
                 }
             },
                 j_b1999_pav = {
@@ -232,9 +232,32 @@ return {
                 "Create a random {C:attention}Tag{}",
                 "Every {C:attention}#2#{} rounds",
                 "{C:inactive}(Currently {C:attention}#1#{C:inactive})"
+                },
+            },
+                j_b1999_hissabeth = {
+                    name = 'Hissabeth',
+		            text = {
+                "Gains {C:attention}[Hiss!]{} when playing a hand",
+                "If this {C:attention}Joker{} is rightmost",
+                "add all copies of {C:attention}[Hiss!]{} to your hand",
+                "when playing a hand",
+                "Loses {C:attention}[Hiss!]{} at the end of the round",
+                "{C:inactive}(Hiss = {C:attention}#1#{C:inactive})"
+                },
             },
         },
-    },
+            Enhanced = {
+                m_b1999_hiss = {
+                    name="Hiss!",
+                    text={
+                "{C:chips}+#1#{}",
+                "Always scores",
+                "{C:attention}+1{} selection limit",
+                "{C:red}Self-destructs{} at the",
+                "end of the round"
+                }
+            }
+        },
             Back={
                 b_b1999_td = {
                     name = "Timekeeper's Deck",
@@ -278,6 +301,12 @@ return {
 			    "{X:default,C:attention}Reverses{} a selected {C:attention}Joker{}"
 		        }
             },
+                c_b1999_acoustica = {
+                    name = 'The Storm',
+		            text = {
+			    "Creates an {X:dark_edition,C:white}Acoustica{} for selected {C:attention}Joker{}"
+		        }
+            },
         },
             Other={
                 b1999_tooth_seal = {
@@ -313,6 +342,13 @@ return {
                 'Has some {C:attention}Special Interactions{}'
                 }
             },
+                b1999_acoustica = {
+		            name = 'Acoustica',
+		            text = {
+			    '{C:attention}+1{} consumable slot',
+                'Effect based on {C:attention}Base Joker{}'
+                }
+            },
         },
             tune={
                 c_b1999_mel1 = {
@@ -330,6 +366,93 @@ return {
 			    'Discards your {C:attention}hand{}',
 			    '{C:red}dissolved{} at the',
 			    'end of the round'
+	            }
+            },
+        },
+            acoustica={
+                c_b1999_draft = {
+                    name = 'Draft',
+		            text = {
+			    'Copies the same {C:attention}Joker{}',
+                'as {C:attention}Blueprint{}'
+	            }
+            },
+                c_b1999_concept = {
+                    name = 'Early Concept',
+		            text = {
+			    'Copy a {C:attention}Joker{} to',
+                'the left of {C:attention}Brainstorm{}'
+	            }
+            },
+                c_b1999_wsv = {
+                    name = "World's Smallest Violin",
+		            text = {
+			    'If {C:attention}Wee Joker{} is present:',
+                'Gain {C:mult}+#1#{} Mult for every {C:attention}2{} scored,',
+                'Sends current {C:mult}Mult{} before scoring',
+                '{C:inactive}(Currently {C:mult}+#2#{} {C:inactive}Mult)'
+	            }
+            },
+                c_b1999_matches = {
+                    name = "Matches",
+		            text = {
+			    'If {C:attention}Burnt Joker{} is present:',
+                'Gain {X:mult,C:white}X#1#{} Mult on',
+                'first {C:attention}discard{} of the round',
+                'Sends current {X:mult,C:white}XMult{} after scoring',
+                '{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)'
+	            }
+            },
+                c_b1999_bindle = {
+                    name = "Bindle",
+		            text = {
+                'If {C:attention}Vagabond{} is present:',
+			    'Create a {C:spectral}Spectral{} card',
+                'at the end of the round',
+                'if at {C:money}$#1# or less'
+	            }
+            },
+                c_b1999_coronet = {
+                    name = "Coronet",
+		            text = {
+			    'After triggering {C:attention}Baron{}',
+                '{C:attention}5{} times, gains {X:mult,C:white}X#1#{} Mult',
+                'Sends current {X:mult,C:white}XMult{} after scoring',
+                '{C:inactive}(Currently {C:attention}#3#/5{C:inactive}, {X:mult,C:white}X#2#{}{C:inactive} Mult){}'
+	            }
+            },
+                c_b1999_bat = {
+                    name = "Baseball Bat",
+		            text = {
+			    'If {C:attention}Baseball Card{} is present:',
+                '{C:green}#3#/#1#{} chance for {X:mult,C:white}X#2#{} Mult',
+                'on {C:uncommon}Uncommon{} Joker triggering'
+	            }
+            },
+                c_b1999_fine = {
+                    name = "Baseball Bat",
+		            text = {
+			    "If {C:attention}Driver's License{} is present:",
+                "{X:mult,C:white}X#1#{} Mult when",
+                "scoring {C:attention}Enhanced{} cards"
+	            }
+            },
+                c_b1999_olbap = {
+                    name = "OLBAP",
+		            text = {
+                "If {C:attention}Ancient Joker{} is present:",
+			    "{X:mult,C:white}X#1#{} Mult after scoring",
+                "card with the same suit as {C:attention}Ancient Joker{}",
+                "{C:inactive}(Currently {C:attention}#2#/#3#{C:inactive})",
+	            }
+            },
+                c_b1999_cloak = {
+                    name = "Invisible Cloak",
+		            text = {
+                "{C:attention}Duplicates{} a random Joker",
+                "when {C:attention}Invisible Joker{} is sold",
+                "{C:inactive}({C:attention}Invisible Joker {C:inactive}excluded){}",
+                "{C:inactive}(Removes {C:dark_edition}Negative{} {C:inactive}from copy){}",
 	            }
             },
         },

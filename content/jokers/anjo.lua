@@ -7,15 +7,15 @@ SMODS.Joker {
 	blueprint_compat = true,
 	eternal_compat = true,
 	perishable_compat = false,
-	config = { extra = { x_mult = 1, check = 0, x_mult_gain = 0.25 } },
+	config = { extra = { x_mult = 1, check = 0, x_mult_gain = 0.25, charge = 5 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.x_mult, card.ability.extra.check, card.ability.extra.x_mult_gain } }
+		return { vars = { card.ability.extra.x_mult, card.ability.extra.check, card.ability.extra.x_mult_gain, card.ability.extra.charge } }
 	end,
 	calculate = function(self, card, context)
 		for i=1, #G.jokers.cards do
             if G.jokers.cards[i] == card then
                 local my_pos = i
-					if card.ability.extra.check < 5 then
+					if card.ability.extra.check < card.ability.extra.charge then
 					if my_pos and context.other_card == G.jokers.cards[my_pos + 1] and context.post_trigger and not context.blueprint then
 						card.ability.extra.check = card.ability.extra.check + 1
 						return {
@@ -24,17 +24,8 @@ SMODS.Joker {
 						}
 					end
 					end
-					if card.ability.extra.check == 4 then
-					if my_pos and context.other_card == G.jokers.cards[my_pos + 1] and context.post_trigger and not context.blueprint then
-						card.ability.extra.check = card.ability.extra.check + 1
-						return {
-							message = "+X" .. card.ability.extra.x_mult_gain ,
-							colour = G.C.RARITY[4],
-						}
 					end
-					end
-					end
-					if card.ability.extra.check >= 5 and not context.blueprint then
+					if card.ability.extra.check >= card.ability.extra.charge and not context.blueprint then
 						card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_gain
 						card.ability.extra.check = 0
 						return {

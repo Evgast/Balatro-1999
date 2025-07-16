@@ -15,7 +15,7 @@ SMODS.Joker {
     add_to_deck = function (self, card, from_debuff)
     end,
 	calculate = function(self, card, context)
-        if context.b1999_ante_change then
+        if context.b1999_ante_change and not context.blueprint then
             card.ability.extra_value = card.ability.extra_value + card.ability.extra.value_gain
             card:set_cost()
             return {

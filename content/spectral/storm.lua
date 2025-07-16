@@ -8,72 +8,35 @@ SMODS.Consumable {
 		info_queue[#info_queue + 1] = { key = "b1999_reverse", set = 'Other' }
 	end,
 	use = function (self, card, area)
-		local rara = nil
-		local truerara = nil
-		local specil = nil
-		local rarara = true
-		G.hand:unhighlight_all()
-			for i=1, #G.jokers.highlighted do
-				rara = G.jokers.highlighted[i]
-				truerara = rara.config.center.rarity
-				specil = rara.config.center.key
-					if specil == "j_ice_cream" then
-						SMODS.add_card({key = "j_b1999_cream"})
-						rara:start_dissolve()
-						rarara = false
-					elseif specil == "j_b1999_creame" then
-						SMODS.add_card({key = "j_ice_cream"})
-						rara:start_dissolve()
-						rarara = false
-					elseif specil == "j_turtle_bean" then
-						SMODS.add_card({key = "j_b1999_kala"})
-						rara:start_dissolve()
-						rarara = false
-					elseif specil == "j_b1999_kala" then
-						SMODS.add_card({key = "j_turtle_bean"})
-						rara:start_dissolve()
-						rarara = false
-					elseif specil == "j_gros_michel" then
-						SMODS.add_card({key = "j_b1999_gross"})
-						rara:start_dissolve()
-						rarara = false
-					elseif specil == "j_b1999_gross" then
-						SMODS.add_card({key = "j_gros_michel"})
-						rara:start_dissolve()
-						rarara = false
-					elseif specil == "j_cavendish" then
-						SMODS.add_card({key = "j_b1999_will"})
-						rara:start_dissolve()
-						rarara = false
-					elseif specil == "j_b1999_will" then
-						SMODS.add_card({key = "j_cavendish"})
-						rara:start_dissolve()
-						rarara = false
-					elseif specil == "j_diet_cola" then
-						SMODS.add_card({key = "j_b1999_papper"})
-						rara:start_dissolve()
-						rarara = false
-					elseif specil == "j_b1999_papper" then
-						SMODS.add_card({key = "j_diet_cola"})
-						rara:start_dissolve()
-						rarara = false
-					else
-					if truerara == 1 then
-						truerara = "Common"
-					elseif truerara == 2 then
-						truerara = "Uncommon"
-					elseif truerara == 3 then
-						truerara = "Rare"
-					elseif truerara == 4 then
-						truerara = "Legendary"
-					end
-				end
-				if rarara == true then
-				SMODS.add_card({set = "Joker", rarity = truerara})
-				rara:start_dissolve()
+		local oldJkr = G.jokers.highlighted[1]
+		newJkr = nil
+		for i, v in ipairs(B1999.SPECIL) do
+            if oldJkr.config.center.key == v.base then
+				newJkr = ""..v.reversed
+			elseif oldJkr.config.center.key == v.reversed then
+				newJkr = ""..v.base
+			else
+				rar = oldJkr.config.center.rarity
+				if rar == 1 then
+					rar = "Common"
+				elseif rar == 2 then
+					rar = "Uncommon"
+				elseif rar == 3 then
+					rar = "Rare"
+				elseif rar == 4 then
+					rar = "Legendary"
 				end
 			end
-		end,
+		end
+		if newJkr ~= nil then
+			oldJkr:start_dissolve()
+			SMODS.add_card({key = ""..newJkr})
+			newJkr = nil
+		else
+			oldJkr:start_dissolve()
+			SMODS.add_card({set = "Joker", rarity = rar })
+		end
+	end,
 	can_use = function(self, card)
 			if #G.jokers.highlighted == 1 and not G.jokers.highlighted[1].ability.eternal then
 			return true else return false
