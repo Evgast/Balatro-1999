@@ -1,3 +1,4 @@
+
 {
 	"id": "b1999",
 	"name": "Balatro: 1999",
@@ -7,5 +8,8 @@
 	"main_file": "main.lua",
 	"priority": 0,
 	"badge_colour": "#8d1a91",
-	"version": "0.6.1"
+	"version": "0.6.1",
+	"dependencies": [
+		"Steamodded (>=1.0.0~BETA-0711a)"
+	]
 }
