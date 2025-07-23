@@ -50,10 +50,13 @@ B1999.compat = {
 	partner = (SMODS.Mods['partner'] or {}).can_load or false,
 }
 
-if B1999.compat.partner then SMODS.load_file('content/partners/slice.lua')() end
-if B1999.compat.partner then SMODS.load_file('content/partners/fmpart.lua')() end
-if B1999.compat.partner then SMODS.load_file('content/partners/wspart.lua')() end
-if B1999.compat.partner then SMODS.load_file('content/partners/mradio.lua')() end
+if B1999.compat.partner then 
+	SMODS.load_file('content/partners/slice.lua')() 
+	SMODS.load_file('content/partners/fmpart.lua')() 
+	SMODS.load_file('content/partners/wspart.lua')() 
+	SMODS.load_file('content/partners/mradio.lua')() 
+	SMODS.load_file('content/partners/hisspart.lua')() 
+end
 
 
 SMODS.Atlas {

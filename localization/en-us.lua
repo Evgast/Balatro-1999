@@ -35,6 +35,13 @@ return {
                     "by {C:attention}#1#%{} when selling a card",
                 }
             },
+            pnr_b1999_hissabeth={
+                name = "Hissabeth",
+                text = {
+                    "{C:attention}#1#{} per round,",
+                    "click to create {C:attention}[Hiss!]{}"
+                }
+            },
         },
             Joker={
                 j_b1999_anjo = {
@@ -57,7 +64,7 @@ return {
                     name = 'Door',
                     text = {
                 "{X:mult,C:white}X#1#{} Mult",
-                "{C:green}#3# in #2#{} chance to shatter"
+                "{C:green}#2# in #3#{} chance to shatter"
                 }
             },
                 j_b1999_fm = {
@@ -134,7 +141,7 @@ return {
                     name = 'Geometry Carbuncle',
                     text = {
                 "Eats leftmost consumable",
-                "with {C:green}#2# in #1#{} change to upgrade",
+                "with {C:green}#1# in #2#{} chance to upgrade",
                 "{C:attention}played hand{}, degrades",
                 "{C:attention}played hand{} when",
                 "there's no {C:attention}consumables{}",
@@ -213,7 +220,7 @@ return {
                 j_b1999_gross = {
                     name = 'Gross Mike',
 		            text = {
-                "{C:green}#4# in #3#{} to gain {C:mult}+#2#{} Mult",
+                "{C:green}#3# in #4#{} to gain {C:mult}+#2#{} Mult",
                 "at the end of round",
                 "{C:inactive}(Currently {C:mult}+#1#{} {C:inactive}Mult)"
 	            }
@@ -221,7 +228,7 @@ return {
                 j_b1999_will = {
                     name = 'Will',
 		            text = {
-                "{C:green}#4# in #3#{} to gain {X:mult,C:white}X#2#{} Mult",
+                "{C:green}#3# in #4#{} to gain {X:mult,C:white}X#2#{} Mult",
                 "at the end of round",
                 "{C:inactive}(Currently {X:mult,C:white}X#1#{} {C:inactive}Mult)"
 	            }
@@ -425,7 +432,7 @@ return {
                     name = "Baseball Bat",
 		            text = {
 			    'If {C:attention}Baseball Card{} is present:',
-                '{C:green}#3#/#1#{} chance for {X:mult,C:white}X#2#{} Mult',
+                '{C:green}#2# in #3#{} chance for {X:mult,C:white}X#1#{} Mult',
                 'on {C:uncommon}Uncommon{} Joker triggering'
 	            }
             },

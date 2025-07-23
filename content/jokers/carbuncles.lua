@@ -4,6 +4,7 @@ SMODS.Joker {
 	key = 'car',
 	rarity = 2,
 	atlas = 'buncles',
+	no_pool_flag = 'evo',
 	pos = { x = 0, y = 0 },
 	cost = 5,
 	blueprint_compat = false,
@@ -80,9 +81,15 @@ SMODS.Joker {
 				G.hand:remove_from_highlighted(carded, true)
 				G.hand:add_to_highlighted(carded, true)
 			return { message = "Ruh?"}
+			end
 		end
-	end
-    end
+    end,
+	add_to_deck = function(self, card, from_debuff)
+		G.GAME.pool_flags.eaten = true
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		G.GAME.pool_flags.eaten = false
+	end	
 }
 
 SMODS.Joker {
@@ -97,12 +104,13 @@ SMODS.Joker {
 	blueprint_compat = false,
 	eternal_compat = true,
 	perishable_compat = true,
-	config = { extra = { odds = 2 } },
+	config = { extra = { n = 1, d = 2 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.odds, G.GAME.probabilities.normal } }
+		local n, d = SMODS.get_probability_vars(card, card.ability.extra.n, card.ability.extra.d, 'geo')
+		return { vars = { n, d } }
 	end,
 	calculate = function(self, card, context)
-		if G.consumeables.cards[1] and context.before and context.main_eval and pseudorandom('geometry') < G.GAME.probabilities.normal / card.ability.extra.odds then
+		if G.consumeables.cards[1] and context.before and context.main_eval and SMODS.pseudorandom_probability(card, 'geo', card.ability.extra.n, card.ability.extra.d, 'geo') then
 			G.consumeables.cards[1]:start_dissolve()
             return {
                 level_up = true,
@@ -116,7 +124,13 @@ SMODS.Joker {
 				message = "Hehe"
 			}
 		end
-    end
+    end,
+	add_to_deck = function(self, card, from_debuff)
+		G.GAME.pool_flags.eaten = true
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		G.GAME.pool_flags.eaten = false
+	end	
 }
 
 SMODS.Joker {
@@ -143,6 +157,12 @@ SMODS.Joker {
 		if context.joker_main then
 			return { xmult = card.ability.extra.x_mult }
 		end
-    end
+    end,
+	add_to_deck = function(self, card, from_debuff)
+		G.GAME.pool_flags.eaten = true
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		G.GAME.pool_flags.eaten = false
+	end	
 }
 

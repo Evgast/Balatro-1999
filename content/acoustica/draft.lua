@@ -226,7 +226,8 @@ SMODS.Consumable {
 	cost = 10,
 	config = { extra = { odds = 2, x_mult = 1.5 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.odds, card.ability.extra.x_mult, G.GAME.probabilities.normal } }
+		local n, d = SMODS.get_probability_vars(card, card.ability.extra.n, card.ability.extra.d, 'bat')
+        return { vars = { card.ability.extra.x_mult, n, d } }
     end,
 	calculate = function (self, card, context)
 		local uncom = nil
@@ -235,7 +236,7 @@ SMODS.Consumable {
             	if G.jokers.cards[i].config.center.rarity == 2 then
                		uncom = G.jokers.cards[i]
 		    	end
-				if context.other_card == uncom and context.post_trigger and pseudorandom('baseball') < G.GAME.probabilities.normal / card.ability.extra.odds then
+				if context.other_card == uncom and context.post_trigger and SMODS.pseudorandom_probability(card, 'bat', card.ability.extra.n, card.ability.extra.d, 'bat') then
 					return {
 						x_mult = card.ability.extra.x_mult
 					}
